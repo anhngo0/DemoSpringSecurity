@@ -1,6 +1,26 @@
 package com.example.demo.Student;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.data.annotation.Id;
+
+/*@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor*/
+@Entity
+@Table(name = "_user")
 public class Student {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private int studentId;
     private String studentName;
     private int age;
     private String email;
@@ -53,6 +73,4 @@ public class Student {
     public void setStudentId(int studentId) {
         this.studentId = studentId;
     }
-
-    private int studentId;
 }
